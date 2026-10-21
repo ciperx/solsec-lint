@@ -141,6 +141,13 @@ line**; each safe fixture is asserted to report **zero** findings.
 python -m pytest -q     # 41 passed
 ```
 
+CI gate (works in any pipeline, no install beyond the package):
+
+```bash
+solsec-lint contracts/ --fail-on high -o reports/   # exits 1 on any high/critical
+solsec-lint tests/fixtures/safe --fail-on low       # our clean baseline must exit 0
+```
+
 ## Limits
 
 This is pattern analysis, not formal verification: it does not compile the
